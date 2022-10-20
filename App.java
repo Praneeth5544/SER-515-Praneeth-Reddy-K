@@ -5,8 +5,9 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
         Facade fp= new Facade();
-        fp.login();
-        
+        ProduceProductMenu ppm =new ProduceProductMenu();
+        if(fp.login())
+        ppm.showMenu();
 
     }
 }
