@@ -106,7 +106,7 @@ public class Facade {
 			else
 			{
 			if(i==buyerArrayList.size()-1)
-			System.out.println("Invalid Username entered");
+			System.out.println("Invalid Username");
 			}
 		}
 		return loginvalid;
