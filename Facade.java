@@ -2,7 +2,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
-
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
 public class Facade {
 
@@ -16,9 +15,13 @@ public class Facade {
 
 	private Person thePerson;
 
+	String Username;
+
 	public boolean login() throws IOException {
 		Scanner sc = new Scanner(System.in);
 		Boolean loginvalid= false;
+		System.out.println("Facade Pattern Implemented");
+		System.out.println("--------Login-------------");
 		System.out.println("Select Login");
 		System.out.println("1.Buyer Login ");
 		System.out.println("2.Seller Login");
@@ -30,8 +33,9 @@ public class Facade {
 		
         // Declaring loop variable
         String st;
-		System.out.println("Enter Username");
+		System.out.println("Enter Buyer Username");
 		String buyerUserName = sc.next();
+		Username=buyerUserName;
 		ArrayList<String> buyerArrayList= new ArrayList<String>();
 		ArrayList<String> passwordArrayList= new ArrayList<String>();
 
@@ -74,9 +78,10 @@ public class Facade {
 		//Boolean loginvalid= true;
         // Declaring loop variable
         String st;
-		System.out.println("Enter Username");
-		String buyerUserName = sc.next();
-		ArrayList<String> buyerArrayList= new ArrayList<String>();
+		System.out.println("Enter Seller Username");
+		String sellerUserName = sc.next();
+		Username=sellerUserName;
+		ArrayList<String> sellerArrayList= new ArrayList<String>();
 		ArrayList<String> passwordArrayList= new ArrayList<String>();
 
         while ((st = br.readLine()) != null)
@@ -84,17 +89,17 @@ public class Facade {
 		StringTokenizer s =new StringTokenizer(st,":");
 		   while(s.hasMoreTokens())
 		   {
-			buyerArrayList.add(s.nextToken());
+			sellerArrayList.add(s.nextToken());
 			passwordArrayList.add(s.nextToken());
 		   }      
 		}
-		for(int i=0;i<buyerArrayList.size();i++)
+		for(int i=0;i<sellerArrayList.size();i++)
 		{   
-			if(buyerUserName.equals(buyerArrayList.get(i)))
+			if(sellerUserName.equals(sellerArrayList.get(i)))
 			{
 				System.out.println("Enter Password");
-				String buyerPassword= sc.next();
-		        if(buyerPassword.equals(passwordArrayList.get(i)))
+				String sellerPassword= sc.next();
+		        if(sellerPassword.equals(passwordArrayList.get(i)))
 				{
 					loginvalid= true;
 					System.out.println("Login Successfull");
@@ -105,7 +110,7 @@ public class Facade {
 			}
 			else
 			{
-			if(i==buyerArrayList.size()-1)
+			if(i==sellerArrayList.size()-1)
 			System.out.println("Invalid Username");
 			}
 		}
