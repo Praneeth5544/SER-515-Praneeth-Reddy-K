@@ -10,7 +10,9 @@ import java.util.StringTokenizer;
 public class ProduceProductMenu implements ProductMenu {
 
 	public void showMenu() {
+		Person p = new Person();
 		try{
+			Scanner sc=new Scanner(System.in);
 			//File reader to read the content of file
 		FileReader fr = new FileReader("C:\\Users\\hp\\Desktop\\SER 515\\Assignment-2-Ind\\SER-515-Praneeth-Reddy-K\\TextFiles\\ProductInfo.txt");
 		BufferedReader br=new BufferedReader(fr);
@@ -33,8 +35,11 @@ public class ProduceProductMenu implements ProductMenu {
 		System.out.println("Produce Items List");
 		for(int i=0;i<ProduceItemList.size();i++)
 		{
-			System.out.println("Produce :"+ProduceItemList.get(i));
+			System.out.println((i+1)+" Produce :"+ProduceItemList.get(i));
 		}
+		int item=sc.nextInt();
+			p.showMenu();
+
 
 		}
 		catch (FileNotFoundException e) 
