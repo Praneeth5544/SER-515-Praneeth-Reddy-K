@@ -7,11 +7,13 @@ public class App {
         MeatProductMenu mpm = new MeatProductMenu();
         Facade fp= new Facade();
         Person p =new Person();
+        Seller s= new Seller();
         if(fp.login())
         {
         ppm.showMenu();
         mpm.showMenu();
         p.showMenu();
+        s.showMenu();
         }
 
 
